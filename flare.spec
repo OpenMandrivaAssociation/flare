@@ -46,3 +46,10 @@ Diablo.
 %{_gamesdatadir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}.*
 
+
+
+%changelog
+* Tue Dec 27 2011 Andrey Bondrov <abondrov@mandriva.org> 15.1-1mdv2011.0
++ Revision: 745574
+- imported package flare
+
