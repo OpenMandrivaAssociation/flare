@@ -3,7 +3,7 @@
 
 Name:		flare
 Version:	15.1
-Release:	%mkrel 1
+Release:	2
 Summary:	Diablo-like role-playing game in 2D
 License:	GPLv3
 Group:		Games/Adventure
