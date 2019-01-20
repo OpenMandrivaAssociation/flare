@@ -38,3 +38,12 @@ popd
 %makeinstall_std -C build
 %makeinstall_std -C ../%{name}-game-%{version}/build
 sed -i -e 's/RolePlaying/AdventureGame/' -e '/TryExec/d' %{buildroot}%{_datadir}/applications/%{name}.desktop
+
+files
+%doc README.engine.md CREDITS.engine.txt ../%{name}-game-%{version}/{README,CREDITS.txt}
+%{_gamesbindir}/%{name}
+%{_datadir}/appdata/org.flarerpg.Flare.appdata.xml
+%{_datadir}/applications/%{name}.desktop
+%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+%{_mandir}/man6/%{name}.6.xz
+%{_gamesdatadir}/%{name}
