@@ -42,7 +42,7 @@ sed -i -e 's/RolePlaying/AdventureGame/' -e '/TryExec/d' %{buildroot}%{_datadir}
 %files
 %doc README.engine.md CREDITS.engine.txt ../%{name}-game-%{version}/{README,CREDITS.txt}
 %{_gamesbindir}/%{name}
-%{_datadir}/appdata/org.flarerpg.Flare.appdata.xml
+%{_datadir}/metainfo/org.flarerpg.Flare.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 %{_mandir}/man6/%{name}.6.xz
