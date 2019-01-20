@@ -1,21 +1,20 @@
-%define	sname		flare_linux
-%define	sversion	v015_1
-
 Name:		flare
-Version:	15.1
-Release:	2
+Version:	1.09.01
+Release:	1
 Summary:	Diablo-like role-playing game in 2D
 License:	GPLv3
 Group:		Games/Adventure
-URL:		http://clintbellanger.net/rpg/
-Source0:	https://github.com/downloads/clintbellanger/%{name}/%{sname}_%{sversion}.tar.gz
-Patch0:		flare-0.15-desktop.patch
+URL:		http://flarerpg.org/
+Source0:	https://github.com/flareteam/flare-engine/archive/v%{version}/%{name}-engine-%{version}.tar.gz
+Source1:  https://github.com/flareteam/flare-game/archive/v%{version}/%{name}-game-%{version}.tar.gz
+
 BuildRequires:	cmake
-BuildRequires:	SDL-devel
-BuildRequires:	SDL_image-devel
-BuildRequires:	SDL_mixer-devel
-BuildRequires:	SDL_ttf-devel
-BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}
+BuildRequires:	pkgconfig(sdl2)
+BuildRequires:	pkgconfig(SDL2_mixer)
+BuildRequires:	pkgconfig(SDL2_image)
+BuildRequires:	pkgconfig(SDL2_ttf)
+
+#BuildRoot:	%{_tmppath}/%{oname}-%{version}-%{release}
 
 %description
 This fantasy dungeon crawl game is a proof of concept implementation of the
@@ -24,32 +23,27 @@ isometric-perspective action role-play game engine in the basic style of
 Diablo.
 
 %prep
-%setup -q -n %{sname}_%{sversion}
-%patch0 -p1 -b .desktop
+%setup -qn %{name}-engine-%{version} -b1
 
 %build
+pushd ../%{name}-game-%{version}
+%cmake
+%make
+popd
+
 %cmake
 %make
 
 %install
-%__rm -rf %{buildroot}
 %makeinstall_std -C build
-
-%clean
-%__rm -rf %{buildroot}
+%makeinstall_std -C ../%{name}-game-%{version}/build
+sed -i -e 's/RolePlaying/AdventureGame/' -e '/TryExec/d' %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
-%defattr(-,root,root)
-%doc COPYING README
+%doc README.engine.md CREDITS.engine.txt ../%{name}-game-%{version}/{README,CREDITS.txt}
 %{_gamesbindir}/%{name}
+%{_datadir}/metainfo/org.flarerpg.Flare.appdata.xml
 %{_datadir}/applications/%{name}.desktop
+%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+%{_mandir}/man6/%{name}.6.xz
 %{_gamesdatadir}/%{name}
-%{_iconsdir}/hicolor/*/apps/%{name}.*
-
-
-
-%changelog
-* Tue Dec 27 2011 Andrey Bondrov <abondrov@mandriva.org> 15.1-1mdv2011.0
-+ Revision: 745574
-- imported package flare
-
