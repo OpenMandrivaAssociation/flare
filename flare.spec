@@ -1,5 +1,5 @@
 Name:		flare
-Version:	1.10
+Version:	1.11
 Release:	1
 Summary:	Diablo-like role-playing game in 2D
 License:	GPLv3
