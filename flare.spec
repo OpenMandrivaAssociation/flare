@@ -45,5 +45,5 @@ sed -i -e 's/RolePlaying/AdventureGame/' -e '/TryExec/d' %{buildroot}%{_datadir}
 %{_datadir}/metainfo/org.flarerpg.Flare.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
-#{_mandir}/man6/%{name}.6.xz
+%{_mandir}/man6/flare.6.*
 %{_gamesdatadir}/%{name}
