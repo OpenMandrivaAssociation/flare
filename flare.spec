@@ -1,5 +1,5 @@
 Name:		flare
-Version:	1.11
+Version:	1.12
 Release:	1
 Summary:	Diablo-like role-playing game in 2D
 License:	GPLv3
@@ -28,15 +28,15 @@ Diablo.
 %build
 pushd ../%{name}-game-%{version}
 %cmake
-%make
+%make_build
 popd
 
 %cmake
-%make
+%make_build
 
 %install
-%makeinstall_std -C build
-%makeinstall_std -C ../%{name}-game-%{version}/build
+%make_install -C build
+%make_install -C ../%{name}-game-%{version}/build
 sed -i -e 's/RolePlaying/AdventureGame/' -e '/TryExec/d' %{buildroot}%{_datadir}/applications/%{name}.desktop
 
 %files
@@ -45,5 +45,5 @@ sed -i -e 's/RolePlaying/AdventureGame/' -e '/TryExec/d' %{buildroot}%{_datadir}
 %{_datadir}/metainfo/org.flarerpg.Flare.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_iconsdir}/hicolor/scalable/apps/%{name}.svg
-%{_mandir}/man6/%{name}.6.xz
+%{_mandir}/man6/flare.6.*
 %{_gamesdatadir}/%{name}
