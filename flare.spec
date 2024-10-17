@@ -4,7 +4,7 @@ Release:	1
 Summary:	Diablo-like role-playing game in 2D
 License:	GPLv3
 Group:		Games/Adventure
-URL:		http://flarerpg.org/
+URL:		https://flarerpg.org/
 Source0:	https://github.com/flareteam/flare-engine/archive/v%{version}/%{name}-engine-%{version}.tar.gz
 Source1:  https://github.com/flareteam/flare-game/archive/v%{version}/%{name}-game-%{version}.tar.gz
 
