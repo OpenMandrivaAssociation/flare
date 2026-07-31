@@ -1,5 +1,5 @@
 Name:		flare
-Version:	1.14
+Version:	1.15
 Release:	1
 Summary:	Diablo-like role-playing game in 2D
 License:	GPLv3
@@ -23,7 +23,7 @@ isometric-perspective action role-play game engine in the basic style of
 Diablo.
 
 %prep
-%setup -qn %{name}-engine-%{version} -b1
+%setup -qn %{name}-engine-%{version} -b1 -n flare-engine-1.15
 
 %build
 pushd ../%{name}-game-%{version}
