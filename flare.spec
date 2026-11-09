@@ -8,7 +8,8 @@ URL:		https://flarerpg.org/
 Source0:	https://github.com/flareteam/flare-engine/archive/v%{version}/%{name}-engine-%{version}.tar.gz
 Source1:  https://github.com/flareteam/flare-game/archive/v%{version}/%{name}-game-%{version}.tar.gz
 
-BuildRequires:	cmake
+BuildRequires:  cmake
+BuildRequires:  make
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL2_mixer)
 BuildRequires:	pkgconfig(SDL2_image)
